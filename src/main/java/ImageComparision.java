@@ -17,10 +17,10 @@ import java.io.*;
 * <h1>Image Compression!</h1>
 * 
 * The Image Compression program implements an application that simply compares images and
-* generate a score based on percentage of imaged matching.
+* generate a score based on percentage of image matching.
 * 
 * <p> The program takes input from CSV file and writes output to a different CSV file with 
-* Image Compression score and time (in sec.) to run each comparison.
+* Image Compression score and time (in seconds) to run each comparison.
 * 
 * 
 * @author  Shreejit Nair
