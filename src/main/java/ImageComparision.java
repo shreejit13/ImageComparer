@@ -168,9 +168,8 @@ public class ImageComparision {
     
     /** This is the main method which make call to all methods in serial fashion.
      * @param args[] it takes input and output CSV files absolute path
-     * @return Nothing
      */
-    public static void main(String args[]) throws IOException 
+    public static void main(String args[])
     {	
     	
     	setPath(args);
