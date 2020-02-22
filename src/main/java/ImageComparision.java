@@ -169,6 +169,10 @@ public class ImageComparision {
     	ifile = readCSV();
     	
     	System.out.println("Info: Starting image comparision");
+    	
+    	/** 
+         * comparing the image set values line by line as given in input CSV file
+         */
         for(String[] temp : ifile) {
         	int index=0;
         	List<String> myList = new ArrayList<String>();
@@ -210,6 +214,10 @@ public class ImageComparision {
             
         }
         System.out.println("Info: Finished image comparision");
+        
+        /** 
+        * writing to CSV file
+        */
         writeCSV(ofile);
 
     }
