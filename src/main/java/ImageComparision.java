@@ -36,16 +36,16 @@ public class ImageComparision {
      * if input file path is not passed as parameter to the main method then
      * these values will be set for input file path
      */
-//	static String inputFile_Path="./input.csv";
+	static String inputFile_Path="./input.csv";
 	/** 
      * Setting default value for output file
      * if output file path is not passed as parameter to the main method then
      * these values will be set for output file path
      */
-//	static String outputFile_Path="./output.csv";
+	static String outputFile_Path="./output.csv";
 
-	static String inputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/in.csv";
-	static String outputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/output.csv";
+//	static String inputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/in.csv";
+//	static String outputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/output.csv";
 	
 	
     /** This method will take care of generating score by comparing the given 2 images
