@@ -4,7 +4,10 @@ Compare images on you laptop irrespective of image extension and get comparison 
 
 ## Algorithm Used
 
-ImageComparer works on simple logic of breaking down images into the smallest units(pixel) and then compares each pixel at same location in corresponding images. Based on the number of pixels matching out of total pixel, it then generates a score for the level of match between images.
+ImageComparer works on simple logic of breaking down images into the smallest units(pixel) and then compares each pixel at same location in corresponding images. 
+# ![algo](media/icimage.png)
+
+Based on the number of pixels matching out of total pixel, it then generates a score for the level of match between images.
 
 ## Prerequisites
 
