@@ -24,7 +24,7 @@ public class ImageComparision {
 	
     static double processImage(String filea_path, String fileb_path){
     	
-    	System.out.println("Info: Comparing images "+ filea_path +" with "+ fileb_path);
+    	System.out.println("Info: Comparing image "+ filea_path +" with "+ fileb_path);
 
         BufferedImage imgA = null;
         BufferedImage imgB = null;
@@ -136,8 +136,6 @@ public class ImageComparision {
     {	
     	
     	setPath(args);
-    	System.out.println("Info: input CSV file = "+inputFile_Path);
-    	System.out.println("Info: output CSV file = "+outputFile_Path);
     	
         DecimalFormat df = new DecimalFormat("0.00");
         df.setRoundingMode(RoundingMode.DOWN);
