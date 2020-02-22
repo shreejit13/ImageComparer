@@ -157,14 +157,19 @@ public class ImageComparision {
          */
         String header = "image1,image2,similar,elapsed";
         File csvFile = new File(outputFile_Path);
-        try (PrintWriter csvWriter = new PrintWriter(new FileWriter(csvFile));){
+        PrintWriter csvWriter = null;
+        //try (PrintWriter csvWriter = new PrintWriter(new FileWriter(csvFile));){
+        try {
+        	csvWriter = new PrintWriter(new FileWriter(csvFile));
         	csvWriter.println(header);
         	for(String item : ofile){
         		csvWriter.println(item);
         	}
         } catch (IOException e) {	
             e.printStackTrace();
-        }	
+        } finally {
+        	csvWriter.close();
+        }
     		
     }
     
