@@ -39,20 +39,31 @@ Note: If you don’t provide the input.csv path as argument then application wil
 * 1.0
     * CHANGE: Initial release
     
+## Document
+
+### JavaDoc
+You can generate code documentation using JavaDoc, please follow given below commands to create JavaDoc documentation.
+```
+git clone -b master https://github.com/shreejit13/ImageComparer.git
+```
+```
+javadoc -author -private -version ImageComparer/src/main/java/ImageComparision.java -d <absolute path where to generated documents>
+```
+    
 ## Contributing
 
 We would love your contribution to make ImageComparer more advance and bug free.
 Please follow below process for submitting pull requests to us.
 
-1. Fork it (https://github.com/shreejit13/ImageComparer.git)
-2. Create your feature branch (git checkout -b feature/abc)
-3. Commit your changes (git commit -am 'please add proper commit messages')
-4. Push to the branch (git push origin feature/abc)
+1. Fork master branch (https://github.com/shreejit13/ImageComparer.git)
+2. Create your feature branch ```git checkout -b feature/abc```
+3. Commit your changes ```git commit -am 'please add proper commit messages'```
+4. Push to the branch ```git push origin feature/abc```
 5. Create a new Pull Request against master branch
 
 ## Acknowledgments
 
-Smartbear - smartbear.com
+* Smartbear - smartbear.com
 
 
 
