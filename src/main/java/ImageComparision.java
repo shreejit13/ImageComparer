@@ -204,9 +204,9 @@ public class ImageComparision {
             /** 
              * converting the list to comma separated string
              */
-            String citiesCommaSeparated = myList.stream().collect(Collectors.joining(","));
+            String output = myList.stream().collect(Collectors.joining(","));
             
-            ofile.add(citiesCommaSeparated);            
+            ofile.add(output);            
             
         }
         System.out.println("Info: Finished image comparision");
