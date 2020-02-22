@@ -13,6 +13,20 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.io.*;  
 
+/** 
+* <h1>Image Compression!</h1>
+* 
+* The Image Compression program implements an application that simply compares images and
+* generate a score based on percentage of imaged matching.
+* 
+* <p> The program takes input from CSV file and writes output to a different CSV file with 
+* Image Compression score and time (in sec.) to run each comparison.
+* 
+* 
+* @author  Shreejit Nair
+* @version 1.0 
+* @since   2020-02-22 
+*/
 
 public class ImageComparision {
 
@@ -132,6 +146,11 @@ public class ImageComparision {
         } 
     }
     
+    
+    /** This is the main method which make call to all methods in serial fashion.
+     * @param args[] it takes input and output CSV files absolute path
+     * @return Nothing
+     */
     public static void main(String args[]) throws IOException 
     {	
     	
@@ -143,9 +162,12 @@ public class ImageComparision {
     	String file[] = new String[4];
     	ArrayList<String[]> ifile = new ArrayList<String[]>();
     	ArrayList<String> ofile = new ArrayList<String>();
-    	
-    	// loading input CSV file
+
+        /** 
+        * loading input CSV file
+        */
     	ifile = readCSV();
+    	
     	System.out.println("Info: Starting image comparision");
         for(String[] temp : ifile) {
         	int index=0;
@@ -159,7 +181,9 @@ public class ImageComparision {
             myList.add(file[1]);
             
             long start = System.currentTimeMillis();
-            // call processImage method to get comparison score for images
+            /** 
+             * call processImage method to get comparison score for images in scr
+             */
             double scr = processImage(file[0],file[1]); 
             long end = System.currentTimeMillis();
             
@@ -171,10 +195,15 @@ public class ImageComparision {
             	myList.add("dimension mismatch");
             }
             
+            /** 
+             * getting time taken to get image comparison score in seconds
+             */
             float timesec = (end - start) / 1000F;
             myList.add(Float.toString(timesec));
                        
-            // converting the list to comma separated string
+            /** 
+             * converting the list to comma separated string
+             */
             String citiesCommaSeparated = myList.stream().collect(Collectors.joining(","));
             
             ofile.add(citiesCommaSeparated);            
