@@ -53,7 +53,7 @@ javadoc -author -private -version ImageComparer/src/main/java/ImageComparision.j
 ## Contributing
 
 We would love your contribution to make ImageComparer more advance and bug free.
-Please go thought he documents section to understand more about the code and follow below process for submitting pull requests to us.
+Please go thought the documents section to understand more about the code and follow below process for submitting pull requests to us.
 
 1. Fork master branch (https://github.com/shreejit13/ImageComparer.git)
 2. Create your feature branch ```git checkout -b feature/abc```
