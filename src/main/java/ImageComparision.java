@@ -32,24 +32,30 @@ public class ImageComparision {
 
 	
 	/** 
-     * Setting default value for input and output file
-     * if input and output file path is not passed as parameter to the main method then
-     * these values will be set for input and output file path
+     * Setting default value for input file
+     * if input file path is not passed as parameter to the main method then
+     * these values will be set for input file path
      */
-	static String inputFile_Path="./input.csv";
-	static String outputFile_Path="./output.csv";
+//	static String inputFile_Path="./input.csv";
+	/** 
+     * Setting default value for output file
+     * if output file path is not passed as parameter to the main method then
+     * these values will be set for output file path
+     */
+//	static String outputFile_Path="./output.csv";
 
-//	static String inputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/in.csv";
-//	static String outputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/output.csv";
+	static String inputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/in.csv";
+	static String outputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/output.csv";
 	
 	
     /** This method will take care of generating score by comparing the given 2 images
+     * based on pixel to pixel comparison 
      * @param filea_path absolute path of image1
      * @param fileb_path absolute path of image2
-     * @return double this method will return a score between 0 to 10 for successful image comparisons,
-     * 		will return 11 if cannot read image file from given path and will return 12 if dimensions of images are not same.
+     * @return double - this method will return a score between 0 to 10 for successful image comparisons, 
+     * will return 11 if cannot read image file from given path and will return 12 if dimensions of images are not same.	
      */	
-    static double processImage(String filea_path, String fileb_path){
+	static double processImage(String filea_path, String fileb_path){
     	
     	System.out.println("Info: Comparing image "+ filea_path +" with "+ fileb_path);
 
@@ -106,37 +112,49 @@ public class ImageComparision {
     }
     
     
-    // method to read the input CSV file into an ArrayList
-    static ArrayList<String[]> readCSV() {
+    /** This method will read data from the given input CSV file in one go and
+     * stores the data in an ArrayList.
+     * @return ArrayList - this method will return an ArrayList with path of imageA and imageB which needs to be compared 
+     */	
+	static ArrayList<String[]> readCSV() {
     	
     	System.out.println("Info: Geting list of images from input CSV file : "+inputFile_Path);
+       	ArrayList<String[]> files = new ArrayList<String[]>();
+       	String[] record = new String[2];
     	Scanner scan = null;
 		try {
 			scan = new Scanner(new File(inputFile_Path));
+	       	while(scan.hasNext())
+	       	{
+	       	    record = scan.nextLine().split(",");
+	       	    files.add(record);
+	       	}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Error: Failed to read input CSV file");
 			e.printStackTrace();
+		} finally {
+			scan.close();
 		}
-       	ArrayList<String[]> files = new ArrayList<String[]>();
-       	String[] record = new String[2];
-       	while(scan.hasNext())
-       	{
-       	    record = scan.nextLine().split(",");
-       	    files.add(record);
-       	}
-       	// ignoring header from Input file
+        /** 
+         * Removing header from input
+         */
        	files.remove(0);
        	System.out.println("Info: List of images received");
 	return files; 		
     }
     
     
-    // method to write the result into output CSV file
-    static void writeCSV(ArrayList<String> ofile) {
+    /** This method will write date to the given output CSV file 
+     * @param ofile this ArrayList object will contain image1, image2, similar and elapsed 
+     * data for each row of input CSV file
+     */	
+	static void writeCSV(ArrayList<String> ofile) {
     	
     	System.out.println("Info: Writing results to output CSV file : "+outputFile_Path);
     	
+        /** 
+         * Adding header from output
+         */
         String header = "image1,image2,similar,elapsed";
         File csvFile = new File(outputFile_Path);
         try (PrintWriter csvWriter = new PrintWriter(new FileWriter(csvFile));){
@@ -151,8 +169,10 @@ public class ImageComparision {
     }
     
     
-    // method to set initial values passed as arguments
-    static void setPath(String args[]) {
+    /** This method is to set variables based on the parameters passed to main method
+     * @param args[] it takes input and output CSV files absolute path
+     */	
+    static void readParams(String args[]) {
  	
         for (int i = 0; i < args.length; i++) { 
         	 
@@ -172,7 +192,7 @@ public class ImageComparision {
     public static void main(String args[])
     {	
     	
-    	setPath(args);
+    	readParams(args);
     	
         DecimalFormat df = new DecimalFormat("0.00");
         df.setRoundingMode(RoundingMode.DOWN);
