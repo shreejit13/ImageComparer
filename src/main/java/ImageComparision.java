@@ -30,12 +30,25 @@ import java.io.*;
 
 public class ImageComparision {
 
+	
+	/** 
+     * Setting default value for input and output file
+     * if input and output file path is not passed as parameter to the main method then
+     * these values will be set for input and output file path
+     */
 	static String inputFile_Path="./input.csv";
 	static String outputFile_Path="./output.csv";
 
 //	static String inputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/in.csv";
 //	static String outputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/output.csv";
 	
+	
+    /** This method will take care of generating score by comparing the given 2 images
+     * @param filea_path absolute path of image1
+     * @param fileb_path absolute path of image2
+     * @return double this method will return a score between 0 to 10 for successful image comparisons,
+     * 		will return 11 if cannot read image file from given path and will return 12 if dimensions of images are not same.
+     */	
     static double processImage(String filea_path, String fileb_path){
     	
     	System.out.println("Info: Comparing image "+ filea_path +" with "+ fileb_path);
@@ -59,20 +72,26 @@ public class ImageComparision {
         int height1 = imgA.getHeight();
         int height2 = imgB.getHeight();
 
-        if ((width1 != width2) || (height1 != height2)) 
-        {
+        /** 
+         * Checking if image dimensions are same
+         */
+        if ((width1 != width2) || (height1 != height2)) {
             System.out.println("Error: Images dimensions mismatched");
         	return 12;}
-        else
-        {
+        else{
         	double unmatched = 0;
-            for (int y = 0; y < height1; y++)
-            {
-                for (int x = 0; x < width1; x++)
-                {
+        	
+            for (int y = 0; y < height1; y++){
+            	
+                for (int x = 0; x < width1; x++){
+                	
                     int rgbA = imgA.getRGB(x, y);
                     int rgbB = imgB.getRGB(x, y);
                  
+                    /** 
+                     * pixel to pixel comparison
+                     * saving unmatched number of pixels in variable unmatched  
+                     */
                     if (rgbA != rgbB) {
                     	unmatched = unmatched + 1;
                     }
