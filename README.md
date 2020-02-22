@@ -8,6 +8,10 @@ ImageComparer works on simple logic of breaking down images into the smallest un
 # ![algo](media/icimage.png)
 
 Based on the number of pixels matching out of total pixel, it then generates a score for the level of match between images.
+The score is from 0.00 to 10.00 where a score of 0 is given to set of images which are matching 100% and a score of 10 is given to set of images which are matching 0%.
+
+Pixel to pixel comparison is very accurate but its biggest limitation is that it requires images to be of same pixel density. Same images having different pixel density may not match 100% with a perfect 0 score.
+Also, it is color sensitive which means that it will not score perfect 0 for an image when it is compared with its grayscale version.
 
 ## Prerequisites
 
