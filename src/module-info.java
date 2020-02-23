@@ -1,4 +1,4 @@
-module imageComparer {
-	requires java.desktop;
-	requires java.base;
-}
+//module imageComparer {
+//	requires java.desktop;
+//	requires java.base;
+//}

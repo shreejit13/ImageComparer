@@ -43,9 +43,6 @@ public class ImageComparision {
      * these values will be set for output file path
      */
 	static String outputFile_Path="./output.csv";
-
-//	static String inputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/in.csv";
-//	static String outputFile_Path="/Users/s0n00nk/Downloads/imagecomparer/output.csv";
 	
 	
     /** This method will take care of generating score by comparing the given 2 images
